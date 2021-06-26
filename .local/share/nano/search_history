@@ -1,0 +1,14 @@
+gitpod:gitpod
+gitpod
+tzdata
+tz
+nginx
+wget
+mkdir
+sudo
+set -eux
+rabbitmq
+
+root:root
+
+
