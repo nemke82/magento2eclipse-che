@@ -26,6 +26,8 @@ RUN apt install -y php-pear
 RUN apt-get -y install dialog
 RUN apt-get -y install nginx
 RUN apt-get -y install wget
+RUN apt-get install -y sudo
+RUN apt-get install -y nano
 
 #Install php-fpm7.4
 RUN apt-get update \
