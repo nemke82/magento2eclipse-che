@@ -22,6 +22,7 @@ RUN mkdir -p /tmp/pear/cache
 RUN mkdir -p /etc/bash_completion.d/cargo
 RUN mkdir -p /home/magento2che
 RUN mkdir -p /var/run/nginx/
+RUN mkdir -p /var/log/php-fpm
 RUN apt install -y php-dev
 RUN apt install -y php-pear
 RUN apt-get -y install dialog
