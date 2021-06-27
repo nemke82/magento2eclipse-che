@@ -3,20 +3,12 @@
 # Clone M2 repository (dev), for composer comment these lines and use following
 # composer create-project --repository=https://repo.magento.com/ magento/project-community-edition magento2
 
-cd /workspace/magento2gitpod &&
-git clone https://github.com/magento/magento2.git && cd magento2 && cp -avr .* /workspace/magento2gitpod &&
-cd /workspace/magento2gitpod && rm -r -f magento2 &&
-
-#getting URL
-url=$(gp url | awk -F"//" {'print $2'}) && url+="/" && url="https://8002-"$url
-echo $url &&
-
-#starting Redis and ElasticSearch services
-redis-server &
-$ES_HOME78/bin/elasticsearch -d -p $ES_HOME78/pid -Ediscovery.type=single-node &
+cd /projects/magento2che &&
+git clone https://github.com/magento/magento2.git && cd magento2 && cp -avr .* /projects/magento2che &&
+cd /projects/magento2che && rm -r -f magento2 &&
 
 mysql -u root -pnem4540 -e 'create database nemanja;' &&
-url=$(gp url | awk -F"//" {'print $2'});url+="/";url="https://8002-"$url;cd /workspace/magento2gitpod && composer install && php bin/magento setup:install --db-name='nemanja' --db-user='root' --db-password='nem4540' --base-url=$url --backend-frontname='admin' --admin-user='admin' --admin-password='adm4540' --admin-email='ne@nemanja.io' --admin-firstname='Nemanja' --admin-lastname='Djuric' --use-rewrites='1' --use-secure='1' --base-url-secure=$url --use-secure-admin='1' --language='en_US' --db-host='127.0.0.1' --cleanup-database --timezone='America/New_York' --currency='USD' --session-save='redis' --amqp-host="127.0.0.1" --amqp-port="5672" --amqp-user="guest" --amqp-password="guest" --amqp-virtualhost="/"
+cd /projects/magento2che && composer install && php bin/magento setup:install --db-name='nemanja' --db-user='root' --db-password='nem4540' --base-url="https://serverh6w3y3wx-magento2che-server-8080.192.168.34.100.nip.io/" --backend-frontname='admin' --admin-user='admin' --admin-password='adm4540' --admin-email='ne@nemanja.io' --admin-firstname='Nemanja' --admin-lastname='Djuric' --use-rewrites='1' --use-secure='1' --base-url-secure=$url --use-secure-admin='1' --language='en_US' --db-host='127.0.0.1' --cleanup-database --timezone='America/New_York' --currency='USD' --session-save='redis' &&
 
 n98-magerun2 module:disable Magento_Csp &&
 n98-magerun2 module:disable Magento_TwoFactorAuth &&
@@ -27,7 +19,7 @@ yes | php bin/magento setup:config:set -n -q --cache-backend=redis --cache-backe
 yes | php bin/magento setup:config:set -n -q --page-cache=redis --page-cache-redis-server=127.0.0.1 --page-cache-redis-db=2
 
 php bin/magento config:set -n -q web/cookie/cookie_path "/" --lock-config &&
-php bin/magento config:set -n -q web/cookie/cookie_domain ".gitpod.io" --lock-config &&
+php bin/magento config:set -n -q web/cookie/cookie_domain ".192.168.34.100.nip.io" --lock-config &&
 
 n98-magerun2 cache:clean &&
 n98-magerun2 cache:flush &&
