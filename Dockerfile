@@ -249,21 +249,6 @@ ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 RUN chown -R root:root /usr/local/nvm
 
-#RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh \
-#    && sdk default java 11.0.5-open"
-    
-RUN curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.16.tar.gz --output elasticsearch-5.6.16.tar.gz \
-    && tar -xzf elasticsearch-5.6.16.tar.gz
-ENV ES_HOME56="$HOME/elasticsearch-5.6.16"
-
-RUN curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.8.9.tar.gz --output elasticsearch-6.8.9.tar.gz \
-    && tar -xzf elasticsearch-6.8.9.tar.gz
-ENV ES_HOME68="$HOME/elasticsearch-6.8.9"
-
-RUN curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.8.0-linux-x86_64.tar.gz --output elasticsearch-7.8.0-linux-x86_64.tar.gz \
-    && tar -xzf elasticsearch-7.8.0-linux-x86_64.tar.gz
-ENV ES_HOME78="$HOME/elasticsearch-7.8.0"
-
 USER root
 
 COPY lighthouse.conf /etc
