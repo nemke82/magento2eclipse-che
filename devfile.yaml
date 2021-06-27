@@ -1,31 +1,51 @@
 apiVersion: 1.0.0
 metadata:
-  generateName: magento2-smartweb-
+  name: magento2-smartweb-0vt6f
 projects:
   - name: magento2che
     source:
-      type: git
       location: 'https://github.com/nemke82/magento2eclipse-che.git'
+      type: git
 components:
-  - type: chePlugin
-    id: bmewburn/vscode-intelephense-client/latest
-  - type: chePlugin
-    id: felixfbecker/php-debug/latest
-  - type: dockerimage
-    alias: magento2che
-    image: 'quay.io/nemke82/magento2eclipse-che:latest'
-    memoryLimit: 2048Mi
+  - id: bmewburn/vscode-intelephense-client/latest
+    type: chePlugin
+  - id: felixfbecker/php-debug/latest
+    type: chePlugin
+  - mountSources: true
     endpoints:
       - name: 8080-tcp
         port: 8080
-    mountSources: true
+    memoryLimit: 2048Mi
+    type: dockerimage
     volumes:
       - name: composer
         containerPath: /home/magento2che/.composer
-
+    image: 'quay.io/nemke82/magento2eclipse-che:latest'
+    alias: magento2che
+  - mountSources: true
+    endpoints:
+      - attributes:
+          discoverable: 'true'
+        name: es
+        port: 9200
+      - attributes:
+          discoverable: 'true'
+        name: es1
+        port: 9100
+      - attributes:
+          discoverable: 'true'
+        name: es3
+        port: 9300
+    memoryLimit: 2048Mi
+    type: dockerimage
+    image: 'elasticsearch:7.9.3'
+    alias: elasticsearch
+    env:
+      - value: '0.0.0.0:9100, 0.0.0.0:9200, 0.0.0.0:9300'
+        name: discovery.seed_hosts
 commands:
   - name: Start Supervisor
     actions:
       - type: exec
-        component: magento2che
         command: /etc/init.d/supervisor start
+        component: magento2che
