@@ -8,7 +8,9 @@ Watch full video how you can easily setup Magento 2 Dev environment right in you
 1) Follow https://github.com/nemke82/eclipse-che-vagrant-minikube instructions and install Eclipse Che on your local desktop or laptop computer 
 2) Fork https://github.com/nemke82/magento2eclipse-che to your repo
 3) The simplest way to load Magento 2 Che environment is to call this repository with following URL:
+```
 https://<your-che-host>/f?url=https://github.com/mygroup/myrepo
+```
 
 If you have installed Eclipse Che using my repository then address example should be:
 https://che-eclipse-che.192.168.34.100.nip.io/f?url=https://github.com/nemke82/magento2eclipse-che
