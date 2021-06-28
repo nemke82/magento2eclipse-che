@@ -16,7 +16,7 @@ https://che-eclipse-che.192.168.34.100.nip.io/f?url=https://github.com/nemke82/m
 Eclipse Che will now launch a workspace container for you on your local computer, containing a full Linux system. It will also clone the GitHub repository branch based on the GitHub page you were coming from.
 
 When instance loads navigate to the right sidebar area and click on "Start Supervisor" button:
-<Image needs added>
+![](eclipse-che-start-services.png)
 
 Services/Tools installed:
 - **Nginx**
