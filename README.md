@@ -12,7 +12,7 @@ Watch full video how you can easily setup Magento 2 Dev environment right in you
 https://<your-che-host>/f?url=https://github.com/mygroup/myrepo
 ```
 
-If you have installed Eclipse Che using my repository then address example should be:
+If you have installed Eclipse Che using my repository then address example should be: <BR>
 https://che-eclipse-che.192.168.34.100.nip.io/f?url=https://github.com/nemke82/magento2eclipse-che
 
 Eclipse Che will now launch a workspace container for you on your local computer, containing a full Linux system. It will also clone the GitHub repository branch based on the GitHub page you were coming from.
