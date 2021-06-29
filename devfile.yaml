@@ -1,18 +1,11 @@
 apiVersion: 1.0.0
 metadata:
-  name: magento2-smartweb-0vt6f
+  name: magento2che-
 projects:
   - name: magento2che
     source:
-      startPoint: 2.4-develop
-      location: 'https://github.com/magento/magento2.git'
+      location: 'https://github.com/nemke82/magento2eclipse-che.git'
       type: git
-  - name: magento2
-    source:
-      startPoint: 2.4-develop
-      location: 'https://github.com/magento/magento2.git'
-      type: git
-    clonePath: magento2che/magento2
 components:
   - id: bmewburn/vscode-intelephense-client/latest
     type: chePlugin
