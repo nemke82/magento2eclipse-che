@@ -41,8 +41,10 @@ components:
     image: 'elasticsearch:7.9.3'
     alias: elasticsearch
     env:
-      - value: '0.0.0.0:9100, 0.0.0.0:9200, 0.0.0.0:9300'
-        name: discovery.seed_hosts
+      - value: '0.0.0.0'
+        name: network.host
+      - value: 'single-node'
+        name: discovery.type
 commands:
   - name: Start Supervisor
     actions:
