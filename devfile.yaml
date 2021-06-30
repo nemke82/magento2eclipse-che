@@ -1,6 +1,6 @@
 apiVersion: 1.0.0
 metadata:
-  name: magento2che-
+  name: magento2che
 projects:
   - name: magento2che
     source:
@@ -41,9 +41,9 @@ components:
     image: 'elasticsearch:7.9.3'
     alias: elasticsearch
     env:
-      - value: '0.0.0.0'
+      - value: 0.0.0.0
         name: network.host
-      - value: 'single-node'
+      - value: single-node
         name: discovery.type
 commands:
   - name: Start Supervisor
@@ -55,6 +55,16 @@ commands:
     actions:
       - type: exec
         command: /etc/init.d/supervisor stop
+        component: magento2che
+  - name: Start Crons
+    actions:
+      - type: exec
+        command: 'apt-get update; apt-get install cron; service cron start; cd /projects/magento2che; php bin/magento cron:install'
+        component: magento2che
+  - name: Stop Crons
+    actions:
+      - type: exec
+        command: 'service cron stop; apt-get -y remove cron'
         component: magento2che
   - name: Install Magento 2 (latest)
     actions:
