@@ -55,6 +55,7 @@ You can split them into separate workspaces and share it among themself if you k
 - **RabbitMQ support**
 default username/password: guest/guest <BR>
 For browser open 15762 browser (already exposed) <BR>
+![](rabbitmq-1.png)
 Rest commands can be used as per RabbitMQ guidelines https://www.rabbitmq.com/cli.html
 
 TO INSTALL Magento 2.4.2 (latest): <BR>
