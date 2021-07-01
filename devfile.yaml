@@ -59,6 +59,23 @@ components:
     type: dockerimage
     image: 'rabbitmq:3-management'
     alias: rabbitmq
+  - mountSources: true
+    endpoints:
+      - attributes:
+          discoverable: 'true'
+        name: phpmyadmin
+        port: 80
+    memoryLimit: 2048Mi
+    type: dockerimage
+    image: 'phpmyadmin/phpmyadmin'
+    alias: phpmyadmin
+    env:
+      - value: 127.0.0.1
+        name: PMA_HOST
+      - value: 3306
+        name: PMA_PORT
+      - value: nem4540
+        name: MYSQL_ROOT_PASSWORD
 commands:
   - name: Start RabbitMQ Management GUI
     actions:
