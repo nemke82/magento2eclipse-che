@@ -70,9 +70,9 @@ components:
     image: 'phpmyadmin/phpmyadmin'
     alias: phpmyadmin
     env:
-      - value: 127.0.0.1
+      - value: "127.0.0.1"
         name: PMA_HOST
-      - value: 3306
+      - value: "3306"
         name: PMA_PORT
       - value: nem4540
         name: MYSQL_ROOT_PASSWORD
