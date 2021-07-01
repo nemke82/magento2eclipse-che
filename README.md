@@ -27,10 +27,10 @@ Services/Tools installed:
 - **rsync**
 - **mc** (Midnight commander)
 - **MySQL** (Percona) 5.7 version (latest)
-- **xDebug** (latest Magento 2 supported version 2.9.8). From menu area select "Start X-Debug" and wait for confirmation. Enables CLI and PHP together, then you can follow https://www.gitpod.io/docs/languages/php/#debugging-php-in-gitpod guidelines.
+- **xDebug** (latest Magento 2 supported version 2.9.8). From side area select "Start X-Debug" and wait for confirmation. Enables CLI and PHP together.
 - **Blackfire**. Note: Please run **./blackfire-run.sh** to enter your Server/Client ID and Token's. Sometimes it requires extra PHP-FPM restart, so please run service php7.4-fpm restart if required.
 - **Tideways**. Note: Please run **/usr/bin/tideways-daemon --address 0.0.0.0:9135 &** to initiate daemon. Please update .env-file located in repo with TIDEWAYS_APIKEY
-- **Newrelic**. Note: Please run **newrelic-daemon -c /etc/newrelic/newrelic.cfg** to initiate daemon. Please update .gitpod.Dockerfile (https://github.com/nemke82/magento2gitpod/blob/master/.gitpod.Dockerfile) with license key. Requires Fresh M2 installation (run m2install.sh) or your store to finish process of validation. <BR>
+- **Newrelic**. Note: Please run **newrelic-daemon -c /etc/newrelic/newrelic.cfg** to initiate daemon. Please update Dockerfile (https://github.com/nemke82/magento2eclipse-che/blob/main/Dockerfile) with license key. Requires Fresh M2 installation or your store to finish process of validation. <BR>
 - **Redis**. Service started by supervisord
 - **NodeJS/NPM NVM Manager**. Note: run nvm ls-remote to list available versions, then nvm install to install specific version or latest. 
 - **ElasticSearch 7.9.3**. Note: Separate Docker container running for this. type curl 127.0.0.1:9200 to check <BR>
@@ -71,9 +71,17 @@ In case you need to create additional database: <BR>
 mysql -e 'create database nemanja;' <BR>
 (where "nemanja" is database name used) <BR>
 
+PHP My Admin (Database Management tool):
+![](phpmyadmin-1.png)
+![](phpmyadmin-2.png)
+
 If you are moving your own installation don't foget to adjust following cookie paths: <BR>
 **web/cookie/path to "/"**
 **web/cookie/domain to ".192.168.34.100.nip.io"**
   
 **Changelog 2021-06-28:**
 - Initial release. Good luck!
+  
+**Changelog 2021-07-01:**
+- Added support for RabbitMQ + Management GUI
+- PHP My Admin application
