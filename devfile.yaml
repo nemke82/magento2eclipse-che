@@ -45,7 +45,26 @@ components:
         name: network.host
       - value: single-node
         name: discovery.type
+  - mountSources: true
+    endpoints:
+      - attributes:
+          discoverable: 'true'
+        name: rabbitmq
+        port: 5672
+      - attributes:
+          discoverable: 'true'
+        name: rabbitmq-gui
+        port: 15672
+    memoryLimit: 2048Mi
+    type: dockerimage
+    image: 'rabbitmq:3-management'
+    alias: rabbitmq
 commands:
+  - name: Start RabbitMQ Management GUI
+    actions:
+      - type: exec
+        command: rabbitmq-plugins enable rabbitmq_management;rabbitmq-plugins enable rabbitmq_top
+        component: rabbitmq
   - name: Start Supervisor
     actions:
       - type: exec
